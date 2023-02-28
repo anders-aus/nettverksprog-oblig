@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Online Code Compiler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+
+<body>
+    <header>
+        <h1>Online Code Compiler</h1>
+    </header>
+    <main>
+        <div class="input-section">
+            <label for="language-select">Select programming language:</label>
+            <select id="language-select" name="language">
+                <option value="python">Python</option>
+                <!-- <option value="javascript">JavaScript</option> -->
+                <!-- <option value="java">Java</option> -->
+                <!-- <option value="csharp">C#</option> -->
+                <!-- <option value="cpp">C++</option> -->
+            </select>
+            <label for="code-input">Enter your code:</label>
+            <textarea id="code-input" name="code" placeholder="Type your code here..."></textarea>
+            <button id="compile-button">Compile and Run</button>
+        </div>
+        <div class="output-section">
+            <label for="output-textarea">Output:</label>
+            <textarea id="output-textarea" readonly></textarea>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
