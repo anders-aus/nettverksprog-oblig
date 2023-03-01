@@ -63,6 +63,21 @@ app.post("/compile", async function (req, res) {
       ]);
       break;
   
+/*     case "c":
+      docker.buildImage({
+        context: __dirname + "/compilers/clang",
+        src: ['Dockerfile', 'main.c']
+      }, {
+         t: 'node-js-script-runner' 
+      }, function(error, output) {
+        if(error) {
+          console.error(error);
+        }
+        output.on('data', function(data) {
+          executionOutput += data.toString();
+        });
+      }); */
+
     default:
       executionOutput = "Something went wrong. Try again"
       break;
