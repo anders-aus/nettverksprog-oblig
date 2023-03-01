@@ -43,13 +43,33 @@ app.post("/compile", async function (req, res) {
     return output;
   }
 
+  var executionOutput;
+
   // TODO: Add support for more languages
+  switch (language) {
+    case "python":
+      executionOutput = await runDocker("python-script-runner", [
+        "python",
+        "-c",
+        code,
+      ]);    
+      break;
+    
+    case "javascript":
+      executionOutput = await runDocker("node-js-script-runner", [
+        "node",
+        "-e",
+        code,
+      ]);
+      break;
+  
+    default:
+      executionOutput = "Something went wrong. Try again"
+      break;
+  }
+
   // Execute Python script
-  var executionOutput = await runDocker("python-script-runner", [
-    "python",
-    "-c",
-    code,
-  ]);
+  
 
   // We send code execution output as response
   console.log("Output: " + executionOutput);
